@@ -1,0 +1,16 @@
+<div class="container row sm-12">
+  <div class="col-sm-6">
+    <app-shopping-list-edit></app-shopping-list-edit>
+   </div>
+</div>
+<hr>
+<div class="container  row sm-12">
+<div class="list-group col-sm-6">
+  <a class="list-group-item "
+    (click)="onItemSelect(idx)"
+    *ngFor="let ingr of ingredientList, index as idx">
+    {{ingr.name}}
+    <span class="pull-right">{{ingr.amount}}</span>
+  </a>
+</div>
+</div>

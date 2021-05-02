@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+      <a  [routerLink]=[index]
+        routerLinkActive="active"
+        class="list-group-item "
+        (click)="onRecipeClicked()">
+        {{recipe.title}}
+      </a>
+      <div class="panel-body">
+        {{recipe.description}}
+      </div>
+      
+    </div>

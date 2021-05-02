@@ -1,0 +1,40 @@
+
+<div class="col-sm-4  col-md-4 col-md-offset-4"> 
+  <app-loader *ngIf="isLoading" ></app-loader>
+  <div *ngIf="errorMessage" class="alert alert-warning" role="alert">
+    <p>{{errorMessage}}</p>
+  </div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" 
+        class="form-control" 
+        id="exampleInputEmail1"
+        ngModel
+        name="email"
+        required
+        email>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" 
+        class="form-control" 
+        id="exampleInputPassword1" 
+        ngModel
+        name="password"
+        required
+        minlength="6">
+    </div>
+      <button type="submit" class="btn btn-primary">{{isSignedUp ? 'Login' : 'SignUp'}}</button>
+      <button type="button" 
+        class="btn btn-info"
+        (click)="switchMode()">
+        Switch to {{isSignedUp ? 'SignUp' : 'Login'}}</button>
+  </form>
+  
+</div>
+
+
+  
+    
+

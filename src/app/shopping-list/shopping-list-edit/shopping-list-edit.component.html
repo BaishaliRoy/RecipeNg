@@ -1,0 +1,53 @@
+<form #form="ngForm" (ngSubmit)="addIngredient()">
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="exampleInputName2">Ingredient Name</label>
+      <input type="text" 
+        class="form-control" 
+        id="exampleInputName1" 
+        placeholder="Ingredient"
+        #ingName="ngModel"
+        ngModel
+        name="IngName"
+        required >
+        <div *ngIf="ingName.invalid && ingName.touched">Please enter ingredient</div>
+    </div>
+   
+    <div class="form-group col-sm-6">
+      <label for="exampleInputEmail2">Amount</label>
+      <input type="number" 
+        class="form-control"
+        id="exampleInputAmount1" 
+        placeholder="Amount"
+        #ingAmount
+        ngModel
+        name="IngAmount"
+        required>
+    </div>
+
+  </div>
+  
+  <div class="row">
+    <button  
+      class="btn btn-primary"
+      [disabled]="!form.valid" 
+      type="submit">
+        {{isEditing ? 'Update' : 'Add'}}
+    </button>
+    <button  
+      *ngIf="isEditing"
+      (click)="delete()"
+      class="btn btn-danger" 
+      type="button">
+      Delete
+    </button>
+    <button  
+      (click)="clearForm()"
+      class="btn btn-default" 
+      type="button">Clear</button>
+  </div>
+  
+</form>
+
+
+

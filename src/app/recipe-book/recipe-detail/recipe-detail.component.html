@@ -1,0 +1,33 @@
+<div class="row">
+  <h1>Recipe Details</h1>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{recipeRecvd.title}}</h3>
+    </div>
+    <div class="panel-body">
+      {{recipeRecvd.description}}  
+    </div>
+  </div>
+  <h3><span class="label label-info">Ingredients</span></h3>
+  <ul  class="list-group">
+    <li *ngFor="let ingr of recipeRecvd.ingredients" class="list-group-item">
+      <span class="badge">{{ingr.amount}}</span>
+      {{ingr.name}}
+    </li>
+  </ul>
+  <div appToggleDropdown class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a (click)="addToShoppingList()">Add to Shopping List</a></li>
+      <li><a [routerLink]="['edit']"
+             [queryParams]="{allowEdit: '1', temp: '0'}"
+             fragment="editing">Edit Recipe</a></li>
+      <li><a href="#">Something else here</a></li>  
+    </ul>
+  </div>   
+</div>
+
+
